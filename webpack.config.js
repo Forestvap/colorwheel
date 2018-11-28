@@ -4,17 +4,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	target: 'web',
 	context: path.resolve(__dirname, 'src'),
+
 	entry: {
 		semantic: './css/semantic.min.css',
 		styles: './css/styles.css',
 		vendor: './vendor.ts',
 		app: './main.ts'
 	},
+
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
 		chunkFilename: '[name].[chunkhash].js'
 	},
+
 	resolve: {
 		extensions: ['.ts', '.js', '.html', '.css'],
 		modules: ['node_modules'],
@@ -43,19 +46,22 @@ module.exports = {
 				]
 			},
 			{
-			  test: /\.(woff|woff2|eot|ttf|otf)$/,
-			  use: [
-			    'file-loader'
-			  ]
+				test: /\.(woff|woff2|eot|ttf|otf|svg|png)$/,
+				use: [
+					'file-loader'
+				]
 			}
 		]
 	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'index.html'
-		}),
+		})
 	],
+
 	devtool: 'inline-source-map',
+
 	devServer: {
 		port: 4000,
 		historyApiFallback: true

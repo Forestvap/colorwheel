@@ -3,8 +3,8 @@ const nextCss = `color: #fff; background-color: #2196F3;`;
 const completeCss = `color: #333; background-color: #AEEA00; font-weight: bold;`;
 const errorCss = `background-color: #ee0000; color: #ffffff; font-weight: bold;`;
 export const observe
-  = <T>(tag: string): Observer<T> => ({
-  next(value: T) {
+  = (tag: string): Observer<any> => ({
+  next(value: any) {
     console.log(`%c${tag} next: `, nextCss, value);
   },
   error(err: any) {

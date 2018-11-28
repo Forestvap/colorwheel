@@ -2,7 +2,7 @@ import { Observer } from 'rxjs/Observer';
 const nextCss = `color: #fff; background-color: #2196F3;`;
 const completeCss = `color: #333; background-color: #AEEA00; font-weight: bold;`;
 const errorCss = `background-color: #ee0000; color: #ffffff; font-weight: bold;`;
-export const observe
+export const observeInConsole
   = (tag: string): Observer<any> => ({
   next(value: any) {
     console.log(`%c${tag} next: `, nextCss, value);
@@ -25,7 +25,7 @@ export const writeToSelector =
       return content;
     };
 
-export const Accumlators: Record<'Circular' | 'Clamped', (acc: number, value: number, i: number) => number> = {
+export const Accumulators: Record<'Circular' | 'Clamped', (acc: number, value: number, i: number) => number> = {
 
   Circular(value, change) {
     const nextValue = value + change;

@@ -1,5 +1,5 @@
 import * as Rx from 'rxjs';
-import { observeInConsole, writeToSelector } from './helpers';
+import { observeInConsole, writeToSelector } from './shared/helpers';
 
 /* Globalize helpers */
 window['observeInConsole'] = observeInConsole;

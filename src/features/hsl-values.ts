@@ -1,4 +1,4 @@
-import { Accumulators } from '../helpers';
+import { Accumulators } from '../shared/helpers';
 import { hueScroll$, satScroll$, lightScroll$ } from './color-control-scrolls';
 /*
  This file exports 3 reactive variables:

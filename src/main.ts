@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { writeToSelector } from './helpers';
+import { writeToSelector } from './shared/helpers';
 import { changingHue1$, changingHue2$, hue$, sat$, light$, hslString$ } from './features';
 
 hue$.subscribe(writeToSelector('.hue-value'));

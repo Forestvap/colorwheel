@@ -39,4 +39,4 @@ const colorDetailsElement = htmlFromString(`
   <h1>Color Name</h1>
 `);
 
-export const ColorFinderWidget = replaceContentAtSelector(Selectors.colorDetailsWidget, colorDetailsElement);
+export const ColorDetailsWidget = replaceContentAtSelector(Selectors.colorDetailsWidget, colorDetailsElement);

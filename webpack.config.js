@@ -10,13 +10,13 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 
 	entry: {
-		semantic: './css/semantic.min.css',
-		styles: './css/styles.css',
-		vendor: [
-			'rxjs'
-		],
-		// './vendor.ts',
-		app: './main.ts'
+		semantic: './css/semantic.less',
+		// styles: './css/styles.css',
+		// vendor: [
+		// 	'rxjs'
+		// ],
+		// // './vendor.ts',
+		// app: './main.ts'
 	},
 
 	output: {
@@ -28,8 +28,6 @@ module.exports = {
 	resolve: {
 		extensions: ['.ts', '.js', '.html', '.css'],
 		modules: ['node_modules'],
-		alias: {
-		}
 	},
 	module: {
 		rules: [
@@ -56,6 +54,22 @@ module.exports = {
 				test: /\.(woff|woff2|eot|ttf|otf|svg|png)$/,
 				use: [
 					'file-loader'
+				]
+			},
+			{
+				test: /\.less$/,
+				use: [
+					// creates style nodes from JS strings
+					'style-loader',
+					// translates CSS into CommonJS
+					'css-loader',
+					// compiles Less to CSS
+					{
+						loader: "less-loader",
+						options: {
+							relativeUrls: false
+						}
+					}
 				]
 			}
 		]

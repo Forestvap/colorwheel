@@ -14,6 +14,20 @@ export interface HSL {
   saturation: number;
   lightness: number;
 }
+
+export interface XYZ {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export interface CMYK {
+  c: number;
+  m: number;
+  y: number;
+  k: number;
+}
+
 export const RGBtoHEX =
   ({red, green, blue}: RGB): HEX => {
     const rHex = `00${red.toString(16)}`.slice(-2);
@@ -38,14 +52,6 @@ const hxcmToRgb =
     else if(H < 240) return toRgb(0, X, C);
     else if(H < 300) return toRgb(X, 0, C);
     else return toRgb(C, 0, X);
-    // switch (hRange) {
-    //     case 0: return toRgb(C, X, 0);
-    //     case 1: return toRgb(X, C, 0);
-    //     case 2: return toRgb(0, C, X);
-    //     case 3: return toRgb(0, X, C);
-    //     case 4: return toRgb(X, 0, C);
-    //     default: return toRgb(C, 0, X);
-    // }
   };
 export const HSLtoRGB =
   ({hue: H, saturation, lightness}: HSL): RGB => {

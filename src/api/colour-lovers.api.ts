@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { HSV, RGB } from './../shared';
 import { JSONP } from './jsonp';
-export interface Color {
+export interface ColourLoversColor {
   id: string;
   title: string;
   userName: string;
@@ -21,7 +21,7 @@ export interface Color {
   apiUrl: string;
 }
 export const ColourLovers = {
-  getColor: (hex: string): Observable<Color[]> => {
+  getColor: (hex: string): Observable<ColourLoversColor[]> => {
     const url = `https://www.colourlovers.com/api/color/${hex}`;
     return JSONP(url);
   }

@@ -1,8 +1,8 @@
 import * as Rx from 'rxjs';
 import { Observable } from 'rxjs';
 import { Selectors, writeToSelector, observeInConsole } from './shared';
-import { changingHue1$, changingHue2$, hue$, sat$, light$, hslString$, hexString$ } from './features';
-import { ColorFinderWidget } from './widgets';
+import { changingHue1$, changingHue2$, hue$, sat$, light$, hslString$, hexString$, gradient$ } from './features';
+import { ColorDetailsWidget } from './widgets';
 
 /* Globalize helpers */
 window['observeInConsole'] = observeInConsole;
@@ -13,7 +13,7 @@ window['Rx'] = Rx;
 Object.entries(Rx).map(([prop, value]) => window[prop] = value);
 
 
-console.log(ColorFinderWidget);
+console.log(ColorDetailsWidget);
 /*
   - Overview of HSL
   Feature #1  Color-changing icons
@@ -50,6 +50,8 @@ light$.subscribe(light => writeToSelector(Selectors.lightnessValue, light));
 hslString$
   .map(hslString => writeToSelector(Selectors.hslString, hslString))
   .subscribe(hsl => document.body.style.backgroundColor = hsl);
+
+gradient$.subscribe(gardient => document.body.style.background = gardient);
 
 hexString$.subscribe(hexString => writeToSelector(Selectors.hexString, hexString));
 

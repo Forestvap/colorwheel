@@ -1,6 +1,6 @@
 import * as Rx from 'rxjs';
 import { Observable } from 'rxjs';
-import { Selectors, writeToSelector, observeInConsole } from './shared';
+import { Selectors, writeToSelector, observeInConsole, replaceContentAtSelector } from './shared';
 import { changingHue1$, changingHue2$, changingHue3$, hue$, sat$, light$, hslString$, hexString$, gradient$ } from './features';
 import { ColorDetailsWidget } from './widgets';
 
@@ -64,6 +64,9 @@ gradient$.subscribe(gardient => document.body.style.background = gardient);
 
 hexString$.subscribe(hexString => writeToSelector(Selectors.hexString, hexString));
 
+ColorDetailsWidget.subscribe(html => {
+  replaceContentAtSelector(Selectors.colorDetailsWidget, html);
+});
 
 /*
   Future features:

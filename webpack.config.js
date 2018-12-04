@@ -5,18 +5,21 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
+const extractLess = new ExtractTextPlugin({
+	filename: "[name].[chunkhash].css"
+});
+
 module.exports = {
 	target: 'web',
 	context: path.resolve(__dirname, 'src'),
 
 	entry: {
 		semantic: './css/semantic.less',
-		// styles: './css/styles.css',
-		// vendor: [
-		// 	'rxjs'
-		// ],
-		// // './vendor.ts',
-		// app: './main.ts'
+		styles: './css/styles.less',
+		vendor: [
+			'rxjs'
+		],
+		app: './main.ts'
 	},
 
 	output: {
@@ -72,10 +75,23 @@ module.exports = {
 					}
 				]
 			}
+			// use: extractLess.extract({
+			//   use: [
+			//     // 'style-loader',
+			//     'css-loader',
+			//     {
+			//       loader: "less-loader",
+			//       options: {
+			//         relativeUrls: false
+			//       }
+			//     }
+			//   ]
+			// })
 		]
 	},
 
 	plugins: [
+		extractLess,
 		new HtmlWebpackPlugin({
 			template: 'index.html'
 		}),

@@ -1,5 +1,6 @@
 export const Selectors = {
   headerText: '#color-scroll-icon-text',
+  logo: '#color-scroll-logo',
   icon1: '#color-scroll-icon-1',
   icon2: '#color-scroll-icon-2',
   hueValue: '.hue-value',

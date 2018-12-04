@@ -10,6 +10,7 @@
   <div class="ui eight wide computer ten wide tablet twelve wide mobile column">
     <div class="ui segments raised scroll-controls-wrapper">
 
+      <i id="color-scroll-logo" class="circular large cloud icon"></i>
       <h1 class="ui top attached huge header center aligned no-border secondary">
         <!--
           Icon 1
@@ -27,15 +28,14 @@
       -->
       <div
         class="ui segment attached padded center aligned scroll-control"
-        id="hue-control">
+        id="hue-control" tabindex="0">
         <div class="ui statistic">
           <div class="value">
-            <i class="long arrow left icon"></i>
+            <i class="swap horiz icon"></i>
             <!--
               Hue value
             -->
             <span class="hue-value"> ? </span>&deg;
-            <i class="long arrow right icon"></i>
           </div>
           <div class="label center aligned">Hue</div>
         </div>
@@ -47,10 +47,10 @@
         -->
         <div
           class="ui segment attached very padded center aligned scroll-control"
-          id="sat-control">
+          id="sat-control" tabindex="0">
           <div class="ui statistic">
             <div class="value">
-              <i class="resize vertical icon"></i>
+              <i class="swap vert icon"></i>
               <!--
                 Saturation value
               -->
@@ -65,10 +65,10 @@
         -->
         <div
           class="ui segment attached very padded center aligned scroll-control"
-          id="light-control">
+          id="light-control" tabindex="0">
           <div class="ui statistic">
             <div class="value">
-              <i class="resize vertical icon"></i>
+              <i class="swap vert icon"></i>
               <!--
                 Lightness value
               -->

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <title>ColorWheel</title>
+</head>
+<body>
+<div class="ui three column middle aligned centered grid">
+  <div class="ui eight wide computer ten wide tablet twelve wide mobile column">
+    <div class="ui segments raised scroll-controls-wrapper">
+
+      <h1 class="ui top attached huge header center aligned no-border secondary">
+        <!--
+          Icon 1
+        -->
+        <i id="color-scroll-icon-1" class="chevron circle up icon"></i>
+        <!--
+          Icon 2
+        -->
+        <i id="color-scroll-icon-2" class="chevron circle down icon"></i>
+        <div id="color-scroll-icon-text" class="content">ColorScroll</div>
+      </h1>
+
+      <!--
+        Hue scroll zone
+      -->
+      <div
+        class="ui segment attached padded center aligned scroll-control"
+        id="hue-control">
+        <div class="ui statistic">
+          <div class="value">
+            <i class="swap horiz icon"></i>
+            <!--
+              Hue value
+            -->
+            <span class="hue-value"> ? </span>&deg;
+          </div>
+          <div class="label center aligned">Hue</div>
+        </div>
+      </div>
+
+      <div class="ui segments horizontal no-border">
+        <!--
+          Saturation scroll zone
+        -->
+        <div
+          class="ui segment attached very padded center aligned scroll-control"
+          id="sat-control">
+          <div class="ui statistic">
+            <div class="value">
+              <i class="swap vert icon"></i>
+              <!--
+                Saturation value
+              -->
+              <span class="saturation-value"> ? </span>%
+            </div>
+            <div class="label">Saturation</div>
+          </div>
+        </div>
+
+        <!--
+          Lightness scroll zone
+        -->
+        <div
+          class="ui segment attached very padded center aligned scroll-control"
+          id="light-control">
+          <div class="ui statistic">
+            <div class="value">
+              <i class="swap vert icon"></i>
+              <!--
+                Lightness value
+              -->
+              <span class="lightness-value"> ? </span>%
+            </div>
+            <div class="label">Lightness</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="color-details-widget" class="ui segment attached bottom center aligned secondary no-border">
+      </div>
+
+      <div class="ui segment attached bottom center aligned secondary no-border">
+        <!--
+          HSL string value
+        -->
+        <code class="hsl-string">hsl(?, ?, ?)</code>
+        <code class="hex-string">#??????</code>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="app.js"></script><script type="text/javascript" src="styles.js"></script></body>
+</html>

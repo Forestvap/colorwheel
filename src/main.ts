@@ -1,7 +1,7 @@
 import * as Rx from 'rxjs';
 import { Observable } from 'rxjs';
 import { Selectors, writeToSelector, observeInConsole } from './shared';
-import { changingHue1$, changingHue2$, hue$, sat$, light$, hslString$, hexString$, gradient$ } from './features';
+import { changingHue1$, changingHue2$, changingHue3$, hue$, sat$, light$, hslString$, hexString$, gradient$ } from './features';
 import { ColorDetailsWidget } from './widgets';
 
 /* Globalize helpers */
@@ -11,6 +11,14 @@ window['writeToSelector'] = writeToSelector;
 /* Globalize RxJS */
 window['Rx'] = Rx;
 Object.entries(Rx).map(([prop, value]) => window[prop] = value);
+
+/*
+* Create the color-changing logo
+*/
+const logo = document.querySelector(Selectors.logo) as HTMLElement;
+
+// Logo Clicks
+const logoClick$ = Observable.fromEvent(logo, 'click');
 
 
 console.log(ColorDetailsWidget);
@@ -41,6 +49,7 @@ const iconClicks2$ = Observable.fromEvent(icon2, 'click');
 // Activate the icons
 changingHue1$.takeUntil(iconClicks1$).subscribe(hue => icon1.style.color = `hsl(${hue}, 100%, 50%)`);
 changingHue2$.takeUntil(iconClicks2$).subscribe(hue => icon2.style.color = `hsl(${hue}, 100%, 50%)`);
+changingHue3$.takeUntil(logoClick$).subscribe(hue => {logo.style.color = `hsl(${hue}, 100%, 50%)`});
 
 hue$.subscribe(hue => writeToSelector(Selectors.hueValue, hue));
 sat$.subscribe(sat => writeToSelector(Selectors.saturationValue, sat));

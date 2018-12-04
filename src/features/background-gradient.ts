@@ -9,7 +9,7 @@ export const gradient$
   .map(hexList =>
     // Set the position of the first (most recent) color so that it takes up the majority of the space
     hexList
-      .map((hex, i) => i === 0 ? `${hex} 50%` : hex)
+      .map((hex, i) => i === 0 ? `${hex} 30%` : hex)
       .join(', ')
   )
   .map(gradientStops => `linear-gradient(180deg, ${gradientStops})`);

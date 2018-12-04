@@ -12,3 +12,4 @@ import { Observable } from 'rxjs';
 // Icon hues
 export const changingHue1$ = Observable.interval(23).map(i => i % 360);
 export const changingHue2$ = Observable.interval(40).map(i => i % 360 * -1);
+export const changingHue3$ = Observable.interval(10).map(i => i % 360 * +1);

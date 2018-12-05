@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+dist
  # Runtime data
 pids
 *.pid
@@ -41,4 +42,6 @@ typings/
 .yarn-integrity
  # dotenv environment variables file
 .env
-.idea
+## intellij idea
+*.iml
+.idea/

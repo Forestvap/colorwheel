@@ -1,11 +1,12 @@
 import { Observable } from 'rxjs';
-import { htmlFromString } from '../shared';
+import { observeInConsole, htmlFromString } from '../shared';
 import { TheColorApi, Color } from '../api';
 import { hexString$ } from '../features';
 
 const colorDetails$: Observable<Color> =
   hexString$.debounceTime(1000)
     .switchMap(hex => TheColorApi.getColor(hex))
+    .do(observeInConsole('hexString$'))
     .share();
 
 const hexMatchesNamedColor$ = colorDetails$.map(details => details.name.exact_match_name);
@@ -15,6 +16,7 @@ export const ColorDetailsWidget: Observable<HTMLElement> =
     colorDetails$,
     hexMatchesNamedColor$
   )
+    .do(observeInConsole('ColorDetailsWidget'))
     .map(([color, matches]) => `
     <div class="">
       <h1 class="header">

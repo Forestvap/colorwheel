@@ -15,7 +15,7 @@ const ScrollSensitity = 0.001;
 
 export const hue$
   = hueScroll$
-  .map(e => e.deltaX)
+  .map(e => { console.log('hueScroll', e);return e.deltaX})
   .filter(dx => dx !== 0)
   .startWith(0.45 / ScrollSensitity)
   .map(value => value * ScrollSensitity)

@@ -14,8 +14,7 @@ export const hslString$
 
 export const hexString$
   = Observable.combineLatest(hue$, sat$, light$, (hue, saturation, lightness): HSL => ({ hue, saturation, lightness }))
-  .map((val)=>{ console.log('HSLTORGB', val); return HSLtoRGB(val)})
+  .map(HSLtoRGB)
   .map(RGBtoHEX)
   .map(hex => {
-      console.log('hex', hex);
     return `#${hex}`.toUpperCase()});
